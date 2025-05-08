@@ -4,11 +4,12 @@ from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="*", supports_credentials=True)
 
 API_KEY = os.getenv("FLASK_API_KEY")
 
-@app.route('/api/process', methods=['POST'])
+
+@app.route("/api/process", methods=["POST"])
 def transcribe():
     print(request.headers.get("x-api-key"))
     if request.headers.get("x-api-key") != API_KEY:
@@ -22,5 +23,7 @@ def transcribe():
     summary, transcription = process_url(url)
     return jsonify({"summary": summary, "transcription": transcription})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
