@@ -2,9 +2,7 @@ from flask import Flask, request, jsonify
 from processor import process_url
 from flask_cors import CORS
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
 app = Flask(__name__)
 CORS(app)
 

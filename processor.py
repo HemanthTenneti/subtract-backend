@@ -1,14 +1,10 @@
 import os, uuid
 import yt_dlp
-from dotenv import load_dotenv
 from google import genai
 import assemblyai as aai
 
-load_dotenv()
-
 aai.settings.api_key = os.getenv("AAI_API_KEY")
 genai_client = genai.Client(api_key=os.getenv("GENAI_API_KEY"))
-
 
 
 def download_audio(url):
