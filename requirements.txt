@@ -1,0 +1,8 @@
+# For the main logic
+assemblyai
+google-genai
+yt-dlp
+
+# For the web server
+flask
+flask-cors
