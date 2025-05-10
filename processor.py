@@ -8,7 +8,7 @@ genai_client = genai.Client(api_key=os.getenv("GENAI_API_KEY"))
 
 
 def download_audio(url):
-    name = f"{uuid.uuid4().hex}.mp3"
+    name = f"audio_{uuid.uuid4().hex}.mp3"
     print("Downloading...")
     with yt_dlp.YoutubeDL(
         {"extract_audio": True, "format": "bestaudio", "outtmpl": name}
